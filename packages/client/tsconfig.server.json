@@ -1,11 +1,16 @@
 {
+    "extends": "./tsconfig.json",
     "compilerOptions": {
         "composite": true,
-        "target": "es2019",
-        "module": "commonjs",
-        "allowSyntheticDefaultImports": true,
+        "noEmit": false,
+        "outDir": "./dist/server",
+        "lib": ["DOM", "ES2019"],
+        "target": "ES2019",
+        "module": "CommonJS",
+        "moduleResolution": "node",
         "esModuleInterop": true,
-        "lib": ["es2019", "DOM"]
+        "types": ["react/jsx-runtime"]
     },
-    "include": ["server/index.ts"]
+    "include": ["src/", "server"],
+    "exclude": ["src/**/*.test.*", "src/**/*.spec.*"]
 }

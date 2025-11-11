@@ -1,16 +1,17 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-import { routes } from './routes';
-import { store } from './store';
-
-const router = createBrowserRouter(routes);
+import './styles/style.scss';
+import { darkTheme } from '@styles/theme';
+import App from './App';
 
 ReactDOM.hydrateRoot(
     document.getElementById('root') as HTMLElement,
-    <Provider store={store}>
-        <RouterProvider router={router} />
-    </Provider>
+    // <Provider store={store}>
+    <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <App />
+    </ThemeProvider>
+    // </Provider>
 );
